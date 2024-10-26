@@ -28,3 +28,45 @@
     ```xml
     <uses-permission android:name="android.permission.CAMERA" />
     ```
+
+* UI
+
+  * 禁用 scrollbar
+
+    * **index.html**
+
+      ```html
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      ```
+
+      禁用左右拖动.
+
+    * **src/global.css**
+
+      ```css
+      html body {
+          overflow: hidden;
+          height: 100vh;
+          width: 100vw;
+          margin: 0;
+          padding: 0;
+      }
+      ```
+
+    * **src/App.css**
+
+      ```css
+      .container {
+          overflow-y: scroll;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+          height: 100vh;
+          width: 100vw;
+      }
+
+      .container::-webkit-scrollbar {
+          display: none;
+      }
+      ```
+
+    * 其他原生组件需要设置 `maxWidth: "100%"`.
